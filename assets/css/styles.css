@@ -1,0 +1,153 @@
+img,h1,h2,h3,p {
+	vertical-align: middle !important;
+}
+
+header, #start, #midCont, #end {
+	opacity: 0;
+	transition: 0.6s;
+}
+
+button:focus {
+	outline: 0;
+}
+
+/*
+ * pseudo color animation for navBar
+ * using a linear gradient for background-image, resize it to 500% and changing just the background-position with a scroll-trigger
+ */
+#mainNav {
+	background-size: auto 500%;
+	background-color: transparent;
+	background-image: linear-gradient(to bottom,#6966FF 0%, #6966FF 20%, #FFAC80 40%, #5CCC3D 60%, #58B23F 80%, #6966FF 100% );
+	transition: .6s;
+}
+
+/*-- for better accessibility --*/
+#mainNav .navbar-brand {
+    color: black;
+}
+#mainNav .navbar-nav li.nav-item a.nav-link {
+    color: black;
+}
+#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+    color: white;
+}
+#mainNav .navbar-nav li.nav-item a.nav-link.active {
+	color: #FFAC80
+}
+@media (min-width:992px) {
+	#mainNav .navbar-nav>li.nav-item>a.nav-link.active,
+	#mainNav.navbar-nav>li.nav-item>a.nav-link.active:active,
+	#mainNav .navbar-nav>li.nav-item>a.nav-link.active:focus,
+	#mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover {
+		color: #FFAC80;
+		background: none
+	}
+}
+/*-- end of better accessibility --*/
+
+/*-- correcting bootstrap's header padding on smaller devices --*/
+@media (max-width: 990px) {
+	header.masthead {
+		padding-top: calc(0rem + 106px);
+		padding-bottom: 3rem;
+	}
+}
+
+.bg-main {
+	background-color: #6966FF;
+}
+
+.bg-second {
+	background-color: #4D4BB2;
+}
+
+.full-height {
+	min-height: 100vh
+}
+
+.scroll-to-top a {
+	border-radius: 50%;
+	background-color: rgba(105, 102, 255, 0.8);
+}
+
+/*-- Scroll wheel with animation for header --*/
+.icon-scroll,
+.icon-scroll:before {
+	position: absolute;
+	left: 50%
+}
+
+.icon-scroll {
+	width: 40px;
+	height: 60px;
+	margin-left: -20px;
+	top: 50%;
+	margin-top: 5vh;
+	box-shadow: inset 0 0 0 3px #fff;
+	border-radius: 25px;
+	border-style: none;
+}
+
+.icon-scroll:before {
+	content: '';
+	width: 8px;
+	height: 8px;
+	background: #fff;
+	margin-left: -4px;
+	top: 8px;
+	border-radius: 4px;
+	animation-duration: 1.5s;
+	animation-iteration-count: infinite;
+	animation-name: scroll
+}
+
+@keyframes scroll {
+	0% {
+		opacity: 1
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(46px)
+	}
+}
+
+.div-cont {
+	position: relative
+}
+
+@keyframes myAnimation {
+	0% {
+		opacity: 1
+	}
+	50% {
+		opacity: 1
+	}
+	100% {
+		display: none;
+		opacity: 0
+	}
+}
+
+@-webkit-keyframes myAnimation {
+	0% {
+		-webkit-opacity: 1
+	}
+	50% {
+		-webkit-opacity: 1
+	}
+	100% {
+		display: none;
+		-webkit-opacity: 0
+	}
+}
+
+#bubble {
+	animation-name: myAnimation;
+	-webkit-animation-name: myAnimation;
+	animation-duration: 4s;
+	-webkit-animation-duration: 4s;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards
+}
+/*-- end of scroll wheel with animation --*/
